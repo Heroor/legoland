@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  max-width: 1366px;
+  min-width: 768px;
+  margin: 0 auto;
+}
+html, body {
+  height: 100%;
+}
