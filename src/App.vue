@@ -1,11 +1,14 @@
 <template lang="pug">
-  #app
-    .top-bar
-      .logo Legoland
-      el-menu.menu(mode="horizontal", :default-active="active", router)
-        el-menu-item(v-for="route in routes", :key="route.name",
-          :index="route.name") {{route.label}}
-    router-view.page-container
+#app(:class='{ home: $route.name === "home" }')
+  .top-bar
+    router-link.logo(to='/') LEGOLAND
+    el-menu.menu(mode='horizontal', :default-active='active', router)
+      el-menu-item(
+        v-for='route in routes',
+        :key='route.name',
+        :index='route.name'
+      ) {{ route.label }}
+  router-view.page__container
 </template>
 <script>
 import { routes } from '@/router'
@@ -30,22 +33,44 @@ export default {
 <style lang="less" scoped>
 #app {
   height: 100%;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
+  &.home {
+    background: url(./assets/images/lego-bg2.png) 0 ~'/' 500px no-repeat,
+      url(./assets/images/bg0.png) 0 ~'/' 16px 14px;
+  }
 }
 .top-bar {
   display: flex;
   align-items: center;
-  border-bottom: solid 1px #e6e6e6;
-  padding: 0 20px;
+  justify-content: space-between;
+  padding: 0 30px;
   .menu {
     border: none;
+    background: none;
+    /deep/ .el-menu-item {
+      color: #11418d;
+      &:hover,
+      &:focus {
+        background: none;
+      }
+      &.is-active {
+        border-color: #11418d;
+        color: #11418d;
+      }
+    }
   }
   .logo {
-    flex: 1;
+    line-height: 60px;
+    font-family: xhh;
+    font-size: 18px;
+    text-decoration: none;
+    color: #11418d;
   }
 }
-.page-container {
+.page__container {
   flex: 1;
+  overflow: auto;
 }
 </style>

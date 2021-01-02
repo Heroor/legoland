@@ -1,9 +1,15 @@
 body {
   margin: 0;
-  max-width: 1366px;
+  /* max-width: 1366px; */
   min-width: 768px;
   margin: 0 auto;
 }
-html, body {
+html,
+body {
   height: 100%;
+}
+
+@font-face {
+  font-family: 'xhh';
+  src: url('../assets/fonts/xhh.ttf');
 }

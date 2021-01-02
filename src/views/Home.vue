@@ -1,6 +1,9 @@
 <template lang="pug">
-  .home
+.home
+  .title
     h1 Legoland
+    p.title__desc Lego components ecosystem
+  .copyright &copy;2021 GLAB-FE
 </template>
 
 <script>
@@ -10,12 +13,36 @@ export default {
 </script>
 <style lang="less" scoped>
 .home {
-  height: 100%;
-  padding-top: 200px;
-  background: url('../assets/images/lego-bg2.gif') no-repeat;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
 }
+.title {
+  padding-right: 20%;
+  margin-top: 120px;
+  text-align: right;
+  font-family: xhh;
+  // color: #0d4da3;
+  color: #11418d;
+}
+
 h1 {
+  line-height: 1.8;
+  margin: 0;
+  margin-right: -50px;
+  font-size: 70px;
+}
+.title__desc {
+  line-height: 1.6;
+  margin: 0;
+  margin-right: -50px;
+  font-size: 18px;
+}
+.copyright {
+  line-height: 5;
   text-align: center;
+  font-size: 15px;
+  color: #d8a669;
 }
 </style>
