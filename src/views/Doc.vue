@@ -6,7 +6,7 @@ doc-layout.document__page
 </template>
 
 <script>
-import DocLayout from '@/components/doc-layout'
+import DocLayout from './components/doc-layout'
 export default {
   components: { DocLayout },
   name: 'Doc'

@@ -38,13 +38,15 @@ h1 {
   line-height: 1.6;
   font-size: 18px;
 }
+.link-button-group {
+  margin-top: 12px;
+}
 .link-button {
   display: inline-block;
   line-height: 2.4em;
   text-decoration: none;
   padding: 0 1.5em;
   border-radius: 2px;
-  margin-top: 12px;
   color: #fdcc01;
   background: #11418d;
   transition: 0.3s;
