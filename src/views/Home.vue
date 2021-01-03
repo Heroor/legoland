@@ -2,7 +2,10 @@
 .home
   .title
     h1 Legoland
-    p.title__desc Lego components ecosystem
+    .title__desc Lego components ecosystem
+    .link-button-group
+      router-link.link-button.ghost(:to='{ name: "doc" }') 快速上手
+      router-link.link-button(:to='{ name: "components" }') 开始
   .copyright &copy;2021 GLAB-FE
 </template>
 
@@ -16,11 +19,12 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 .title {
-  padding-right: 20%;
+  padding-right: 46%;
   margin-top: 120px;
+  margin-right: -340px;
   text-align: right;
   font-family: xhh;
   // color: #0d4da3;
@@ -29,22 +33,32 @@ export default {
 
 h1 {
   line-height: 1.8;
-  padding-right: 2%;
   margin: 0;
-  margin-right: -50px;
   font-size: 70px;
 }
 .title__desc {
   line-height: 1.6;
-  padding-right: 2%;
-  margin: 0;
-  margin-right: -50px;
   font-size: 18px;
+}
+.link-button {
+  display: inline-block;
+  line-height: 2.4em;
+  text-decoration: none;
+  padding: 0 1.5em;
+  border-radius: 1.2em;
+  margin-top: 12px;
+  color: #fdcc01;
+  background: #11418d;
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
 }
 .copyright {
   line-height: 5;
   text-indent: 3em;
   font-size: 15px;
-  color: #dc9948;
+  color: #fdcc00;
+  text-shadow: 1px 1px 1px rgba(255, 223, 94, 0.522),
+    -1px -1px 1px rgba(220, 150, 52, 0.8);
 }
 </style>
