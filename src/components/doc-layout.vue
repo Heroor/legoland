@@ -22,7 +22,7 @@ export default {
     bottom: 0;
     overflow: auto;
     width: 300px;
-    border-right: 1px solid #ddd;
+    border-right: 1px solid #11418d;
   }
   .main {
     overflow: auto;

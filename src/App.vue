@@ -41,7 +41,9 @@ export default {
       url(./assets/images/lego-bg2.png) 0 ~'/' 500px no-repeat,
       url(./assets/images/lego-bg0.png) 0 ~'/' 16px 14px;
     .top-bar {
+      transition: border 0s;
       background: none;
+      border-color: transparent;
     }
   }
 }
@@ -52,7 +54,9 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
+  border-bottom: 1px solid #11418d;
   background: rgba(255, 255, 255, 0.9);
+  transition: border 0.4s;
   .menu {
     border: none;
     background: none;
@@ -65,12 +69,8 @@ export default {
     }
   }
   .logo {
-    line-height: 60px;
-    font-family: xhh;
-    font-size: 18px;
-    text-decoration: none;
-    color: #11418d;
     height: 36px;
+    margin-top: -5px;
     img {
       height: 100%;
     }
