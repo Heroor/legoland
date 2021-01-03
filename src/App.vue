@@ -1,7 +1,8 @@
 <template lang="pug">
 #app(:class='{ home: $route.name === "home" }')
   .top-bar
-    router-link.logo(to='/') LEGOLAND
+    router-link.logo(to='/')
+      img(src='@/assets/images/logo_400x108.png')
     el-menu.menu(mode='horizontal', :default-active='active', router)
       el-menu-item(
         v-for='route in routes',
@@ -69,6 +70,10 @@ export default {
     font-size: 18px;
     text-decoration: none;
     color: #11418d;
+    height: 36px;
+    img {
+      height: 100%;
+    }
   }
 }
 .page__container {
