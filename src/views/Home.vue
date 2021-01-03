@@ -19,15 +19,13 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden !important;
+  overflow-x: hidden !important;
 }
 .title {
   padding-right: 46%;
-  margin-top: 120px;
-  margin-right: -340px;
+  margin: 120px -300px 200px 0;
   text-align: right;
   font-family: xhh;
-  // color: #0d4da3;
   color: #11418d;
 }
 
@@ -45,7 +43,7 @@ h1 {
   line-height: 2.4em;
   text-decoration: none;
   padding: 0 1.5em;
-  border-radius: 1.2em;
+  border-radius: 2px;
   margin-top: 12px;
   color: #fdcc01;
   background: #11418d;

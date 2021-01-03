@@ -32,21 +32,26 @@ export default {
 
 <style lang="less" scoped>
 #app {
-  height: 100%;
-  min-height: 600px;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   &.home {
     background: url(./assets/images/lego-bg1.png) bottom right ~'/' 500px no-repeat,
       url(./assets/images/lego-bg2.png) 0 ~'/' 500px no-repeat,
       url(./assets/images/lego-bg0.png) 0 ~'/' 16px 14px;
+    .top-bar {
+      background: none;
+    }
   }
 }
 .top-bar {
+  position: sticky;
+  top: 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
+  background: rgba(255, 255, 255, 0.9);
   .menu {
     border: none;
     background: none;
@@ -55,10 +60,6 @@ export default {
       &:hover,
       &:focus {
         background: none;
-      }
-      &.is-active {
-        border-color: #11418d;
-        color: #11418d;
       }
     }
   }
