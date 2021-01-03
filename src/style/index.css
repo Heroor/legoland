@@ -1,7 +1,6 @@
 body {
   margin: 0;
-  /* max-width: 1366px; */
-  min-width: 768px;
+  min-width: 960px;
   margin: 0 auto;
 }
 html,

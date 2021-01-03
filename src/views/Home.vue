@@ -29,20 +29,22 @@ export default {
 
 h1 {
   line-height: 1.8;
+  padding-right: 2%;
   margin: 0;
   margin-right: -50px;
   font-size: 70px;
 }
 .title__desc {
   line-height: 1.6;
+  padding-right: 2%;
   margin: 0;
   margin-right: -50px;
   font-size: 18px;
 }
 .copyright {
   line-height: 5;
-  text-align: center;
+  text-indent: 3em;
   font-size: 15px;
-  color: #d8a669;
+  color: #dc9948;
 }
 </style>

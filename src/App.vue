@@ -37,7 +37,8 @@ export default {
   display: flex;
   flex-direction: column;
   &.home {
-    background: url(./assets/images/lego-bg2.png) 0 ~'/' 500px no-repeat,
+    background: url(./assets/images/lego-bg1.png) bottom right ~'/' 500px no-repeat,
+      url(./assets/images/lego-bg2.png) 0 ~'/' 500px no-repeat,
       url(./assets/images/lego-bg0.png) 0 ~'/' 16px 14px;
   }
 }
