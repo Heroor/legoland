@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "add": "node scripts/add",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },

@@ -23,7 +23,7 @@ export default {
 }
 .title {
   padding-right: 46%;
-  margin: 120px -300px 200px 0;
+  margin: 100px -250px 200px 0;
   text-align: right;
   font-family: xhh;
   color: #11418d;

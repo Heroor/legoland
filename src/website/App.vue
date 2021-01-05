@@ -64,6 +64,7 @@ export default {
       color: #11418d;
       &:hover,
       &:focus {
+        color: #11418d;
         background: none;
       }
     }

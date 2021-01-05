@@ -7,6 +7,7 @@ doc-layout.document__page
 
 <script>
 import DocLayout from './components/doc-layout'
+// import
 export default {
   components: { DocLayout },
   name: 'Doc'
