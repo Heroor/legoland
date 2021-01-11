@@ -1,7 +1,6 @@
 {
   "name": "legoland",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -9,14 +8,16 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
     "core-js": "^3.6.5",
     "element-ui": "^2.14.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
-  },
-  "devDependencies": {
+    "vuex": "^3.4.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
@@ -50,6 +51,7 @@
       "git add"
     ]
   },
+  "main": "./src/main.js",
   "files": [
     "./src/blocks",
     "./src/components",
