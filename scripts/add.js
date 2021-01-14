@@ -2,7 +2,7 @@ const fs = require('fs-extra')
 const { resolve } = require('path')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
-const { category } = require('./config.js')
+const { libs } = require('../config')
 
 const tmpPath = '../templates'
 const templatesDirPath = resolve(__dirname, tmpPath)
@@ -23,7 +23,7 @@ inquirer
       type: 'list',
       name: 'templateType',
       message: 'Select type of project',
-      choices: category.map(item => item.name)
+      choices: libs.map(item => item.name)
     },
     {
       type: 'list',

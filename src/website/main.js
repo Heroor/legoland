@@ -3,8 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
-import '@/assets/theme/theme/index.css'
-import '@/style/index.css'
+import '@website/assets/theme/theme/index.css'
+import '@website/style/index.css'
 
 Vue.use(ElementUI, {
   size: 'mini'

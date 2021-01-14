@@ -1,4 +1,4 @@
-const path = require('path')
+const { alias } = require('./config')
 
 module.exports = {
   pages: {
@@ -8,12 +8,8 @@ module.exports = {
     }
   },
   chainWebpack: config => {
-    config.resolve.alias
-      .set('@', path.resolve('src/website'))
-      .set('@components', path.resolve('src/components'))
-      .set('@blocks', path.resolve('src/blocks'))
-      .set('@pages', path.resolve('src/pages'))
-      .set('@layouts', path.resolve('src/layouts'))
-      .set('@templates', path.resolve('src/templates'))
+    for (const name in alias) {
+      config.resolve.alias.set(name, alias[name])
+    }
   }
 }

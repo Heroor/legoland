@@ -2,15 +2,23 @@
 doc-layout.document__page
   template(#sidebar)
     | sidebar
-  | document
+  | docType: {{ docType }}
 </template>
 
 <script>
-import DocLayout from '@/components/doc-layout'
-// import
+import DocLayout from '@website/components/doc-layout'
+
 export default {
+  name: 'Doc',
   components: { DocLayout },
-  name: 'Doc'
+  data() {
+    return {}
+  },
+  computed: {
+    docType() {
+      return this.$route.name
+    }
+  }
 }
 </script>
 

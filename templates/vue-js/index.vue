@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'Example',
   props: {
     // v-model
     value: {

@@ -14,10 +14,16 @@ npm install
 npm run serve
 ```
 
-### Build production
+### Build website
 
 ```bash
 npm run build
+```
+
+### Build library
+
+```bash
+npm run dist
 ```
 
 ### Add element

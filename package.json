@@ -4,8 +4,11 @@
   "description": "Lego components ecosystem",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
     "add": "node scripts/add",
+    "dist": "npm run lint && npm run build:lib",
+    "build": "npm run lint && npm run build:website",
+    "build:lib": "vue-cli-service build",
+    "build:website": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },

@@ -2,7 +2,7 @@
 #app(:class='{ home: $route.name === "home" }')
   .top-bar
     router-link.logo(to='/')
-      img(src='@/assets/images/logo_400x108.png')
+      img(src='@website/assets/images/logo_400x108.png')
     el-menu.menu(mode='horizontal', :default-active='active', router)
       el-menu-item(
         v-for='route in routes',
@@ -12,7 +12,7 @@
   router-view.page__container
 </template>
 <script>
-import { routes } from '@/router'
+import { routes } from '@website/router'
 export default {
   data() {
     return {
