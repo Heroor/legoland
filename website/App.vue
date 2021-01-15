@@ -1,13 +1,13 @@
 <template lang="pug">
-#app(:class='{ home: $route.name === "home" }')
+#app(:class="{ home: $route.name === 'home' }")
   .top-bar
-    router-link.logo(to='/')
-      img(src='@website/assets/images/logo_400x108.png')
-    el-menu.menu(mode='horizontal', :default-active='active', router)
+    router-link.logo(to="/")
+      img(src="@website/assets/images/logo_400x108.png")
+    el-menu.menu(mode="horizontal", :default-active="$route.path", router)
       el-menu-item(
-        v-for='route in routes',
-        :key='route.name',
-        :index='route.name'
+        v-for="route in routes",
+        :key="route.name",
+        :index="route.path"
       ) {{ route.label }}
   router-view.page__container
 </template>
@@ -17,17 +17,8 @@ export default {
   data() {
     return {
       routes,
-      active: ''
     }
   },
-  watch: {
-    '$route.name': {
-      handler(name) {
-        this.active = name ? name.split('.')[0] : 'home'
-      },
-      immediate: true
-    }
-  }
 }
 </script>
 

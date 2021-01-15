@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Doc from '../views/Doc.vue'
-import * as config from '../../../config'
+import * as config from '../../config'
 
 Vue.use(VueRouter)
 
@@ -11,24 +11,23 @@ const libRoutes = config.libs.map(item => {
     path: `/${item.name}`,
     name: item.name,
     label: item.label,
-    component: Doc
+    component: Doc,
   }
 })
 
 export const routes = [
   {
     path: '/home',
-    name: 'home',
     label: '首页',
-    redirect: '/'
+    redirect: '/',
   },
   {
     path: '/doc',
     name: 'doc',
     label: '文档',
-    component: Doc
+    component: Doc,
   },
-  ...libRoutes
+  ...libRoutes,
 ]
 
 const router = new VueRouter({
@@ -38,10 +37,10 @@ const router = new VueRouter({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
     },
-    ...routes
-  ]
+    ...routes,
+  ],
 })
 
 export default router

@@ -7,12 +7,12 @@ import '@website/assets/theme/theme/index.css'
 import '@website/style/index.css'
 
 Vue.use(ElementUI, {
-  size: 'mini'
+  size: 'mini',
 })
 Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount('#app')

@@ -4,32 +4,32 @@ module.exports = {
   libs: [
     {
       name: 'components',
-      label: '组件'
+      label: '组件',
     },
     {
       name: 'blocks',
-      label: '区块'
+      label: '区块',
     },
     {
       name: 'pages',
-      label: '页面'
+      label: '页面',
     },
     {
       name: 'layouts',
-      label: '布局'
+      label: '布局',
     },
     {
       name: 'templates',
-      label: '模板'
-    }
+      label: '模板',
+    },
   ],
   alias: {
     '@': resolve(__dirname, '../src'),
-    '@website': resolve(__dirname, '../src/website'),
+    '@website': resolve(__dirname, '../website'),
     '@pages': resolve(__dirname, '../src/pages'),
     '@blocks': resolve(__dirname, '../src/blocks'),
     '@layouts': resolve(__dirname, '../src/layouts'),
     '@templates': resolve(__dirname, '../src/templates'),
-    '@components': resolve(__dirname, '../src/components')
-  }
+    '@components': resolve(__dirname, '../src/components'),
+  },
 }

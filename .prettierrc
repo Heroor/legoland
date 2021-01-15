@@ -2,6 +2,7 @@
   "semi": false,
   "tabWidth": 2,
   "singleQuote": true,
-  "trailingComma": "none",
-  "arrowParens": "avoid"
+  "trailingComma": "all",
+  "arrowParens": "avoid",
+  "pugSingleQuote": false
 }
