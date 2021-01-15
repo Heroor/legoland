@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 
 const libRoutes = config.libs.map(item => {
   return {
-    path: `/${item.name}`,
+    path: `/${item.name}/:sub?`,
     name: item.name,
     label: item.label,
     component: Doc,
@@ -19,10 +19,11 @@ export const routes = [
   {
     path: '/home',
     label: '首页',
+    name: '',
     redirect: '/',
   },
   {
-    path: '/doc',
+    path: '/doc/:sub?',
     name: 'doc',
     label: '文档',
     component: Doc,

@@ -1,9 +1,14 @@
 <template lang="pug">
 doc-layout.document__page
   template(#sidebar)
-    sidebar(v-model="activeManu", name-prop="title", :data="menus")
+    sidebar(
+      v-model="activeMenu",
+      name-prop="title",
+      :data="menus",
+      @click="onClickMenu"
+    )
   div docType: {{ docType }}
-  div activeManu: {{ activeManu }}
+  div activeMenu: {{ activeMenu }}
 </template>
 
 <script>
@@ -16,7 +21,7 @@ export default {
   data() {
     return {
       num: 0,
-      activeManu: '',
+      activeMenu: this.$route.params.sub,
       menus: [
         {
           title: 'example',
@@ -39,6 +44,32 @@ export default {
         console.log(name)
       },
     },
+  },
+  mounted() {
+    if (!this.activeMenu && this.menus && this.menus.length) {
+      const menu = this.menus[0]
+      this.activeMenu = menu.title
+      this.onClickMenu(menu, true)
+    }
+  },
+  methods: {
+    onClickMenu(menu, isReplace) {
+      this.$router[isReplace ? 'replace' : 'push']({
+        params: {
+          sub: menu.title,
+        },
+      })
+    },
+  },
+  beforeRouteUpdate(to, from, next) {
+    const fromPaths = from.path.substr(1).split('/')
+    const toPaths = to.path.substr(1).split('/')
+    if (toPaths.length < fromPaths.length) {
+      return
+    } else {
+      this.activeMenu = to.params.sub
+    }
+    next()
   },
 }
 </script>

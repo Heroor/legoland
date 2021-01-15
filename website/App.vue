@@ -3,13 +3,13 @@
   .top-bar
     router-link.logo(to="/")
       img(src="@website/assets/images/logo_400x108.png")
-    el-menu.menu(mode="horizontal", :default-active="$route.path", router)
+    el-menu.menu(mode="horizontal", :default-active="active", router)
       el-menu-item(
         v-for="route in routes",
         :key="route.name",
-        :index="route.path"
+        :index="'/' + route.name"
       ) {{ route.label }}
-  router-view.page__container
+  router-view.page__container(:key="$route.name")
 </template>
 <script>
 import { routes } from '@website/router'
@@ -18,6 +18,11 @@ export default {
     return {
       routes,
     }
+  },
+  computed: {
+    active() {
+      return '/' + this.$route.name
+    },
   },
 }
 </script>
