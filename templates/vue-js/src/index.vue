@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'Example',
+  name: '{{LIB_NAME}}',
   props: {
     // v-model
     value: {

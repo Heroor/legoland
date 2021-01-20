@@ -1,4 +1,4 @@
-# {{LIB_NAME}} *{{LIB_TYPE}}*
+# Example *components*
 
 ## 基础用法
 
