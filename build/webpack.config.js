@@ -12,9 +12,9 @@ module.exports = {
     libraryExport: 'default',
     library: 'legoland',
     umdNamedDefine: true,
-    globalObject: "typeof self !== 'undefined' ? self : this"
+    globalObject: "typeof self !== 'undefined' ? self : this",
   },
   resolve: {
-    alias
-  }
+    alias,
+  },
 }

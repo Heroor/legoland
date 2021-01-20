@@ -14,7 +14,7 @@ inquirer
       type: 'input',
       name: 'name',
       message: 'Input project name',
-      default: 'my-component'
+      default: 'my-component',
       // validate () {
 
       // }
@@ -23,18 +23,19 @@ inquirer
       type: 'list',
       name: 'templateType',
       message: 'Select type of project',
-      choices: libs.map(item => item.name)
+      choices: libs.map(item => item.name),
     },
     {
       type: 'list',
       name: 'templateName',
       message: 'Select template of project',
-      choices: templateList
-    }
+      choices: templateList,
+    },
   ])
   .then(res => {
     initTemplate(res)
   })
+
 function initTemplate({ name, templateName, templateType }) {
   void templateType
   const source = resolve(templatesDirPath, templateName)
