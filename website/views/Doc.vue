@@ -9,27 +9,40 @@ doc-layout.document__page
     )
   div docType: {{ docType }}
   div activeMenu: {{ activeMenu }}
+  component.markdown-body(:is="curModule")
 </template>
 
 <script>
 import DocLayout from '@website/components/doc-layout'
 import Sidebar from '@website/components/sidebar'
+import getDocs from '@website/utils/getDocs'
 
 export default {
   name: 'Doc',
-  components: { DocLayout, Sidebar },
+  components: {
+    DocLayout,
+    Sidebar,
+  },
+  created() {
+    const modules = getDocs('components')
+    this.modules = modules.map(({ path, module, name: title }) => {
+      this.menus.push({
+        title,
+      })
+      return {
+        path,
+        module,
+        title,
+      }
+    })
+  },
   data() {
     return {
-      num: 0,
+      mdHTML: '',
+      curModule: null,
+      menus: [],
+      modules: [],
       activeMenu: this.$route.params.sub,
-      menus: [
-        {
-          title: 'example',
-        },
-        {
-          title: 'example2',
-        },
-      ],
     }
   },
   computed: {
@@ -38,7 +51,7 @@ export default {
     },
   },
   watch: {
-    '$route.name': {
+    '$route.params.sub': {
       immediate: true,
       handler(name) {
         console.log(name)
@@ -59,6 +72,13 @@ export default {
           sub: menu.title,
         },
       })
+      this.renderHtml(menu.title)
+    },
+    renderHtml(title) {
+      const target = this.modules.find(m => m.title === title)
+      if (target) {
+        this.curModule = target.module
+      }
     },
   },
   beforeRouteUpdate(to, from, next) {
@@ -76,5 +96,8 @@ export default {
 
 <style lang="less" scoped>
 .document__page {
+  .markdown-body {
+    padding: 24px;
+  }
 }
 </style>

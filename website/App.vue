@@ -53,6 +53,7 @@ export default {
   border-bottom: 1px solid #11418d;
   background: rgba(255, 255, 255, 0.9);
   transition: border 0.4s;
+  z-index: 1;
   .menu {
     border: none;
     background: none;

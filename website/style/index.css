@@ -12,3 +12,5 @@ body {
   font-family: 'xhh';
   src: url('../assets/fonts/xhh.ttf');
 }
+
+@import './md-juejin.css';

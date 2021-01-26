@@ -7,21 +7,17 @@
     "add": "node scripts/add",
     "dist": "npm run lint && npm run build:lib",
     "build": "npm run lint && npm run build:website",
-    "build:lib": "vue-cli-service build",
+    "build:lib": "webpack --config ./build/webpack.config.js",
     "build:website": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {},
   "peerDependencies": {
+    "element-ui": "^2.14.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "core-js": "^3.6.5",
-    "element-ui": "^2.14.1",
-    "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
-    "vuex": "^3.4.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
@@ -31,7 +27,10 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
     "chalk": "^4.1.0",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.15.0",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^6.2.2",
@@ -44,7 +43,12 @@
     "prettier-eslint": "^12.0.0",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.1.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-loader": "^15.9.6",
+    "vue-markdown-loader": "^2.4.1",
+    "vue-router": "^3.2.0",
+    "vue-template-compiler": "^2.6.11",
+    "vuex": "^3.4.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -55,7 +59,7 @@
       "git add"
     ]
   },
-  "main": "src/main.js",
+  "main": "lib/main.js",
   "files": [
     "src/blocks",
     "src/components/*",
