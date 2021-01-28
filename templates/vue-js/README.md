@@ -1,12 +1,14 @@
 # {{LIB_NAME}} *{{LIB_TYPE}}*
-
 ## 基础用法
 
-```html
-<example-component v-model="num" @change="onChange"></example-component>
-```
+<gt-example v-model="num" @change="onChange"></gt-example>
 
-```js
+```html
+<template>
+  <gt-example v-model="num" @change="onChange"></gt-example>
+</template>
+
+<script>
 export default {
   data () {
     return {
@@ -19,6 +21,7 @@ export default {
     }
   }
 }
+</script>
 ```
 
 ## Attributes
@@ -32,7 +35,3 @@ export default {
 | 事件名 | 说明                   | 参数   |
 | ------ | ---------------------- | ------ |
 | change | 绑定值变化时触发的事件 | 绑定值 |
-
-## Methods
-
-## Slots

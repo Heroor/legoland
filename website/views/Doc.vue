@@ -97,7 +97,7 @@ export default {
 <style lang="less" scoped>
 .document__page {
   .markdown-body {
-    padding: 24px;
+    padding: 0 24px;
   }
 }
 </style>

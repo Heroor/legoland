@@ -1,10 +1,10 @@
 <template>
-  <button @click="click">{{ value }}</button>
+  <el-button @click="click">{{ value }}</el-button>
 </template>
 
 <script>
 export default {
-  name: 'Example',
+  name: 'GtExample',
   props: {
     // v-model
     value: {

@@ -3,12 +3,19 @@ const { resolve } = require('path')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
 const { libs } = require('../config')
-const { toCamelCase, replaceTemplateFiles } = require('./shared')
+const { generateGlobalScript } = require('./shared/generator')
+const {
+  srcPath,
+  getLibs,
+  toCamelCase,
+  generateEntryScript,
+  replaceTemplateFiles,
+} = require('./shared')
 
 const tmpPath = '../templates'
 const templatesDirPath = resolve(__dirname, tmpPath)
 const templateList = fs.readdirSync(templatesDirPath)
-const REPLACE_FILES = ['README.md']
+const REPLACE_FILES = ['README.md', './src/index.vue']
 
 inquirer
   .prompt([
@@ -41,7 +48,7 @@ inquirer
 function initTemplate({ name = '', templateName, templateType }) {
   const libName = toCamelCase(name)
   const templatesPath = resolve(templatesDirPath, templateName)
-  const libPath = resolve('./src', templateType, libName)
+  const libPath = resolve(srcPath, templateType, libName)
 
   console.log(`Create "${libName}" from template ${templateName}...`)
   fs.copySync(templatesPath, libPath)
@@ -65,5 +72,17 @@ function initTemplate({ name = '', templateName, templateType }) {
     },
     (filePath, fileStr) => fs.writeFileSync(filePath, fileStr, 'utf-8'),
   )
+
+  const libs = getLibs()
+  const mainSrc = generateEntryScript(libs)
+  fs.writeFileSync(resolve(srcPath, 'main.js'), mainSrc, 'utf-8')
+
+  const globalSrc = generateGlobalScript(libs)
+  fs.writeFileSync(
+    resolve(__dirname, '../website/global.js'),
+    globalSrc,
+    'utf-8',
+  )
+
   console.log(chalk.green(`${libName} init success!`))
 }

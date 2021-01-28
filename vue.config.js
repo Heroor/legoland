@@ -23,6 +23,5 @@ module.exports = {
       .options({
         raw: true,
       })
-    // return config
   },
 }

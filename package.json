@@ -5,9 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "add": "node scripts/add",
-    "dist": "npm run lint && npm run build:lib",
     "build": "npm run lint && npm run build:website",
-    "build:lib": "webpack --config ./build/webpack.config.js",
     "build:website": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
@@ -39,6 +37,8 @@
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "lint-staged": "^9.5.0",
+    "markdown-it": "^12.0.4",
+    "markdown-it-container": "^3.0.0",
     "prettier": "^1.19.1",
     "prettier-eslint": "^12.0.0",
     "pug": "^3.0.0",
