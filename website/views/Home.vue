@@ -4,8 +4,7 @@
     h1 Legoland
     .title__desc Lego components ecosystem
     .link-button-group
-      router-link.link-button(:to="{ name: 'doc' }") 快速上手
-      router-link.link-button(:to="{ name: 'components' }") 开始
+      router-link.link-button(:to="{ name: 'docs' }") 快速上手
   .copyright &copy;2021 GLAB-FE
 </template>
 

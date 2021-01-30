@@ -23,8 +23,8 @@ export const routes = [
     redirect: '/',
   },
   {
-    path: '/doc/:sub?',
-    name: 'doc',
+    path: '/docs/:sub?',
+    name: 'docs',
     label: '文档',
     component: Doc,
   },

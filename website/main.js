@@ -4,14 +4,13 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import '@website/assets/theme/theme/index.css'
-import '@website/style/index.css'
-import DemoBLock from '@website/components/demo-block'
-import './global'
+import '@website/style/index.less'
+import installGlobal from './global'
 
-Vue.component('demo-block', DemoBLock)
 Vue.use(ElementUI, {
   size: 'mini',
 })
+installGlobal(Vue)
 Vue.config.productionTip = false
 
 new Vue({

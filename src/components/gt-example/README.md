@@ -1,4 +1,5 @@
-# GtExample *components*
+# GtExample 累加示例
+
 ## 基础用法
 
 <gt-example v-model="num" @change="onChange"></gt-example>

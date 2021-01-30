@@ -1,6 +1,11 @@
 export default type => {
-  const contents = require.context('@', true, /README\.md$/)
-  return contents
+  let context
+  if (type === 'docs') {
+    context = require.context('@website', true, /.+\.md$/)
+  } else {
+    context = require.context('@', true, /.+\.md$/)
+  }
+  return context
     .keys()
     .filter(path => path.startsWith('./' + type))
     .map(path => {
@@ -8,8 +13,8 @@ export default type => {
       return {
         path,
         name,
-        contents,
-        module: contents(path).default,
+        context,
+        module: context(path).default,
       }
     })
 }

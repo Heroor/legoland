@@ -7,9 +7,9 @@ doc-layout.document__page
       :data="menus",
       @click="onClickMenu"
     )
-  div docType: {{ docType }}
-  div activeMenu: {{ activeMenu }}
-  component.markdown-body(:is="curModule")
+  .markdown-body
+    component(v-if="activeMenu", :is="curModule")
+    .no-data-tip(v-else) 暂无内容，请使用 "npm run add" 创建
 </template>
 
 <script>
@@ -24,7 +24,8 @@ export default {
     Sidebar,
   },
   created() {
-    const modules = getDocs('components')
+    const modules = getDocs(this.$route.name)
+    console.log(modules)
     this.modules = modules.map(({ path, module, name: title }) => {
       this.menus.push({
         title,
@@ -44,11 +45,6 @@ export default {
       modules: [],
       activeMenu: this.$route.params.sub,
     }
-  },
-  computed: {
-    docType() {
-      return this.$route.name
-    },
   },
   watch: {
     '$route.params.sub': {
@@ -81,6 +77,13 @@ export default {
       }
     },
   },
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      if (!from.name) {
+        vm.renderHtml(to.params.sub)
+      }
+    })
+  },
   beforeRouteUpdate(to, from, next) {
     const fromPaths = from.path.substr(1).split('/')
     const toPaths = to.path.substr(1).split('/')
@@ -96,6 +99,10 @@ export default {
 
 <style lang="less" scoped>
 .document__page {
+  .no-data-tip {
+    text-align: center;
+    margin-top: 20px;
+  }
   .markdown-body {
     padding: 0 24px;
   }

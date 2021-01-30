@@ -1,7 +1,6 @@
 const fs = require('fs')
 const { resolve } = require('path')
 const srcPath = resolve(__dirname, '../../src')
-const { generateEntryScript } = require('./generator.js')
 
 function transfTemplate(str = '', data = {}) {
   let resultStr = str
@@ -34,7 +33,7 @@ function getLibs() {
   const libTypeDirs = fs.readdirSync(srcPath)
   return libTypeDirs.reduce((libDirs, type) => {
     const libDir = resolve(srcPath, type)
-    console.log(libDir)
+
     const state = fs.lstatSync(libDir)
     if (state.isDirectory()) {
       const libs = fs.readdirSync(libDir)
@@ -54,6 +53,5 @@ module.exports = {
   getLibs,
   toCamelCase,
   transfTemplate,
-  generateEntryScript,
   replaceTemplateFiles,
 }

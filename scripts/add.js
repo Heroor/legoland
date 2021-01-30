@@ -1,21 +1,14 @@
 const fs = require('fs-extra')
 const { resolve } = require('path')
-const chalk = require('chalk')
 const inquirer = require('inquirer')
 const { libs } = require('../config')
-const { generateGlobalScript } = require('./shared/generator')
-const {
-  srcPath,
-  getLibs,
-  toCamelCase,
-  generateEntryScript,
-  replaceTemplateFiles,
-} = require('./shared')
+const { srcPath, toCamelCase, replaceTemplateFiles } = require('./shared')
 
 const tmpPath = '../templates'
 const templatesDirPath = resolve(__dirname, tmpPath)
 const templateList = fs.readdirSync(templatesDirPath)
 const REPLACE_FILES = ['README.md', './src/index.vue']
+inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'))
 
 inquirer
   .prompt([
@@ -23,10 +16,19 @@ inquirer
       type: 'input',
       name: 'name',
       message: 'Input project name',
-      default: 'MyComponent',
-      // validate () {
+      default: 'gt-example',
+      validate(name) {
+        if (!name.trim()) return false
 
-      // }
+        const libTypeDirs = fs.readdirSync(srcPath)
+        for (const type of libTypeDirs) {
+          const hasLib = fs.existsSync(resolve(srcPath, type, name))
+          if (hasLib) {
+            return `"src/${type}/${name}" is already exist`
+          }
+        }
+        return true
+      },
     },
     {
       type: 'list',
@@ -34,6 +36,20 @@ inquirer
       message: 'Select type of project',
       choices: libs.map(item => item.name),
     },
+    // {
+    //   type: 'autocomplete',
+    //   name: 'libGroup',
+    //   message: 'Select group of project',
+    //   default: 'form',
+    //   source: (answersSoFar, input) => {
+    //     if (input) {
+    //       const res = ['form', 'chart', 'basic'].filter(v => v.includes(input))
+    //       return res.length ? res : [input]
+    //     } else {
+    //       return ['form', 'chart', 'basic']
+    //     }
+    //   },
+    // },
     {
       type: 'list',
       name: 'templateName',
@@ -42,15 +58,17 @@ inquirer
     },
   ])
   .then(res => {
-    initTemplate(res)
+    addTemplate(res)
+    // init main.js / install global components
+    require('./init')
   })
 
-function initTemplate({ name = '', templateName, templateType }) {
+function addTemplate({ name, libGroup, templateName, templateType }) {
   const libName = toCamelCase(name)
   const templatesPath = resolve(templatesDirPath, templateName)
-  const libPath = resolve(srcPath, templateType, libName)
+  const libPath = resolve(srcPath, templateType, name)
 
-  console.log(`Create "${libName}" from template ${templateName}...`)
+  console.log(`Create "${name}" from template ${templateName}...`)
   fs.copySync(templatesPath, libPath)
   const tmpConfigPath = resolve(libPath, 'template.config.js')
 
@@ -69,20 +87,8 @@ function initTemplate({ name = '', templateName, templateType }) {
     {
       LIB_NAME: libName,
       LIB_TYPE: templateType,
+      LIB_GROUP: libGroup,
     },
     (filePath, fileStr) => fs.writeFileSync(filePath, fileStr, 'utf-8'),
   )
-
-  const libs = getLibs()
-  const mainSrc = generateEntryScript(libs)
-  fs.writeFileSync(resolve(srcPath, 'main.js'), mainSrc, 'utf-8')
-
-  const globalSrc = generateGlobalScript(libs)
-  fs.writeFileSync(
-    resolve(__dirname, '../website/global.js'),
-    globalSrc,
-    'utf-8',
-  )
-
-  console.log(chalk.green(`${libName} init success!`))
 }

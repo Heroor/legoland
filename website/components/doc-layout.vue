@@ -14,15 +14,16 @@ export default {
 
 <style lang="less" scoped>
 .doc__layout {
-  display: flex;
   .sidebar {
+    position: fixed;
     overflow: auto;
     width: 300px;
+    height: calc(100vh - 61px);
     border-right: 1px solid #11418d;
   }
   .main {
     overflow: auto;
-    flex: 1;
+    margin-left: 300px;
   }
 }
 </style>

@@ -1,4 +1,5 @@
-# {{LIB_NAME}} *{{LIB_TYPE}}*
+# {{LIB_NAME}} 累加示例
+
 ## 基础用法
 
 <gt-example v-model="num" @change="onChange"></gt-example>
