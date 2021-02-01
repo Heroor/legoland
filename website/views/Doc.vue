@@ -101,7 +101,7 @@ export default {
 .document__page {
   .no-data-tip {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
   }
   .markdown-body {
     padding: 0 24px;
