@@ -1,6 +1,6 @@
 <template lang="pug">
 ul.sidebar__wrap
-  li(v-for="item in data", :class="{ active: value === item[nameProp] }")
+  li(v-for="item in data", :class="{ active: value === item[activeProp] }")
     a(href="javascript:(0)", @click="clickMenu(item)") {{ item[nameProp] }}
 </template>
 
@@ -17,6 +17,10 @@ export default {
       default: () => [],
     },
     nameProp: {
+      type: String,
+      default: 'name',
+    },
+    activeProp: {
       type: String,
       default: 'name',
     },
@@ -39,7 +43,7 @@ export default {
   list-style: none;
   padding-left: 0;
   li {
-    line-height: 1.5;
+    line-height: 1.8;
     padding-left: 2em;
     a {
       color: #383838;

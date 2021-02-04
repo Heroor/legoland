@@ -4,6 +4,7 @@ doc-layout.document__page
     sidebar(
       v-model="activeMenu",
       name-prop="title",
+      activeProp="title",
       :data="menus",
       @click="onClickMenu"
     )
@@ -16,7 +17,6 @@ doc-layout.document__page
 import DocLayout from '@website/components/doc-layout'
 import Sidebar from '@website/components/sidebar'
 import getDocs from '@website/utils/getDocs'
-import docRoutes from '@website/docs'
 
 export default {
   name: 'Doc',
@@ -28,7 +28,7 @@ export default {
     return {
       mdHTML: '',
       curModule: null,
-      menus: docRoutes,
+      menus: [],
       modules: [],
       activeMenu: this.$route.params.sub,
     }
@@ -45,6 +45,9 @@ export default {
     const modules = getDocs(this.$route.name)
     console.log(modules)
     this.modules = modules.map(({ path, module, name: title }) => {
+      this.menus.push({
+        title,
+      })
       return {
         path,
         module,
@@ -55,7 +58,7 @@ export default {
   mounted() {
     if (!this.activeMenu && this.menus && this.menus.length) {
       const menu = this.menus[0]
-      this.activeMenu = menu.name
+      this.activeMenu = menu.title
       this.onClickMenu(menu, true)
     }
   },
@@ -63,14 +66,15 @@ export default {
     onClickMenu(menu, isReplace) {
       this.$router[isReplace ? 'replace' : 'push']({
         params: {
-          sub: menu.name,
+          sub: menu.title,
         },
       })
-      this.renderHtml(menu.name)
+      this.renderHtml(menu.title)
     },
     renderHtml(title) {
       const target = this.modules.find(m => m.title === title)
       if (target) {
+        console.log(target)
         this.curModule = target.module
       }
     },
@@ -84,7 +88,6 @@ export default {
     })
   },
   beforeRouteUpdate(to, from, next) {
-    console.log('beforeRouteUpdate doc')
     const fromPaths = from.path.substr(1).split('/')
     const toPaths = to.path.substr(1).split('/')
     if (toPaths.length < fromPaths.length) {

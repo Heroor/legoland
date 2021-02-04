@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Doc from '../views/Doc.vue'
+import LibDoc from '../views/LibDoc.vue'
 import * as config from '../../config'
 
 Vue.use(VueRouter)
@@ -11,7 +12,7 @@ const libRoutes = config.libs.map(item => {
     path: `/${item.name}/:sub?`,
     name: item.name,
     label: item.label,
-    component: Doc,
+    component: LibDoc,
   }
 })
 
@@ -25,7 +26,7 @@ export const routes = [
   {
     path: '/docs/:sub?',
     name: 'docs',
-    label: '文档',
+    label: '指南',
     component: Doc,
   },
   ...libRoutes,

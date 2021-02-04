@@ -32,14 +32,23 @@ export default {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  background-position: bottom right, 0, 0;
+  background-size: 500px, 550px, 16px 14px;
+  background-repeat: no-repeat, no-repeat, repeat;
+  transition: 0.5s;
+  @media screen and (min-width: 1366px) {
+    background-size: 600px, 700px, 16px 14px;
+  }
   &.home {
-    background: url(./assets/images/lego-bg1.png) bottom right ~'/' 500px no-repeat,
-      url(./assets/images/lego-bg2.png) 0 ~'/' 500px no-repeat,
-      url(./assets/images/lego-bg0.png) 0 ~'/' 16px 14px;
+    background-image: url(./assets/images/lego-bg1.png),
+      url(./assets/images/lego-bg2.png), url(./assets/images/lego-bg0.png);
     .top-bar {
       transition: border 0s;
       background: none;
       border-color: transparent;
+    }
+    @media screen and (min-width: 1366px) {
+      background-size: 600px, 700px, 16px 14px;
     }
   }
 }

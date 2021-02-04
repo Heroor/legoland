@@ -1,0 +1,36 @@
+{
+  "menus": [
+    {
+      "title": "组件",
+      "type": "components",
+      "groups": [
+        {
+          "title": "表单",
+          "type": "form",
+          "components": [
+            {
+              "title": "输入框",
+              "name": "gt-input"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "区块",
+      "type": "blocks"
+    },
+    {
+      "title": "页面",
+      "type": "pages"
+    },
+    {
+      "title": "布局",
+      "type": "layouts"
+    },
+    {
+      "title": "模板",
+      "type": "templates"
+    }
+  ]
+}

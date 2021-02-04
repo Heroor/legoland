@@ -4,7 +4,8 @@
     h1 Legoland
     .title__desc Lego components ecosystem
     .link-button-group
-      router-link.link-button(:to="{ name: 'docs' }") 快速上手
+      router-link.link-button(to="/docs/description") 介绍
+      router-link.link-button(to="/docs/start") 快速开始
   .copyright &copy;2021 GLAB-FE
 </template>
 
@@ -45,12 +46,12 @@ h1 {
   line-height: 2.4em;
   text-decoration: none;
   padding: 0 1.5em;
-  border-radius: 2px;
+  border-radius: 4px;
   color: #fdcc01;
   background: #11418d;
   transition: 0.3s;
   &:hover {
-    opacity: 0.85;
+    opacity: 0.9;
   }
   &:not(:last-child) {
     margin-right: 12px;
