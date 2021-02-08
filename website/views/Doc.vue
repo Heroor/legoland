@@ -104,7 +104,7 @@ export default {
     margin-top: 40px;
   }
   .markdown-body {
-    padding: 0 24px;
+    padding: 0 40px;
   }
 }
 </style>

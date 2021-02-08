@@ -46,12 +46,11 @@ export default {
     line-height: 1.8;
     padding-left: 2em;
     a {
-      color: #383838;
+      color: #fff;
       text-decoration: none;
     }
     &.active a {
-      font-weight: bold;
-      color: #11418d;
+      color: #79b8ff;
     }
   }
 }

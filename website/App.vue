@@ -1,8 +1,9 @@
 <template lang="pug">
 #app(:class="{ home: $route.name === 'home' }")
   .top-bar
-    router-link.logo(to="/")
-      img(src="@website/assets/images/logo_400x108.png")
+    .logo-wrap
+      router-link.logo(to="/")
+        img(src="@website/assets/images/logo_400x108.png")
     el-menu.menu(mode="horizontal", :default-active="active", router)
       el-menu-item(
         v-for="route in routes",
@@ -46,6 +47,12 @@ export default {
       transition: border 0s;
       background: none;
       border-color: transparent;
+      .logo-wrap {
+        background: none;
+        .logo {
+          filter: none;
+        }
+      }
     }
     @media screen and (min-width: 1366px) {
       background-size: 600px, 700px, 16px 14px;
@@ -56,11 +63,9 @@ export default {
   position: sticky;
   top: 0px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 30px;
-  border-bottom: 1px solid #11418d;
-  background: rgba(255, 255, 255, 0.9);
+  padding-right: 30px;
+  background: rgba(255, 255, 255, 0.95);
   transition: border 0.4s;
   z-index: 1;
   .menu {
@@ -75,11 +80,18 @@ export default {
       }
     }
   }
-  .logo {
-    height: 36px;
-    margin-top: -5px;
-    img {
-      height: 100%;
+  .logo-wrap {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background: #11418d;
+    .logo {
+      height: 36px;
+      margin-left: 2em;
+      filter: brightness(50);
+      img {
+        height: 100%;
+      }
     }
   }
 }

@@ -16,10 +16,13 @@ export default {
 .doc__layout {
   .sidebar {
     position: fixed;
+    top: 0;
     overflow: auto;
     width: 300px;
-    height: calc(100vh - 61px);
-    border-right: 1px solid #11418d;
+    height: 100%;
+    padding-top: 60px;
+    background: #11418d;
+    box-sizing: border-box;
   }
   .main {
     overflow: auto;
