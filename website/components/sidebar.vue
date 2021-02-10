@@ -40,11 +40,15 @@ export default {
 
 <style lang="less" scoped>
 .sidebar__wrap {
+  position: sticky;
+  top: 60px;
   list-style: none;
-  padding-left: 0;
+  padding: 2em 0;
+  margin: 0;
   li {
-    line-height: 1.8;
-    padding-left: 2em;
+    line-height: 1.4;
+    padding: 0 1em 0 2em;
+    margin-bottom: 0.6em;
     a {
       color: #fff;
       text-decoration: none;

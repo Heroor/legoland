@@ -1,6 +1,6 @@
 <template lang="pug">
 .doc__layout
-  .sidebar
+  nav.sidebar
     slot(name="sidebar")
   .main
     slot
@@ -14,19 +14,15 @@ export default {
 
 <style lang="less" scoped>
 .doc__layout {
+  display: flex;
   .sidebar {
-    position: fixed;
-    top: 0;
-    overflow: auto;
     width: 300px;
-    height: 100%;
-    padding-top: 60px;
     background: #11418d;
     box-sizing: border-box;
   }
   .main {
+    flex: 1;
     overflow: auto;
-    margin-left: 300px;
   }
 }
 </style>

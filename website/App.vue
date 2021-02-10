@@ -64,7 +64,7 @@ export default {
   top: 0px;
   display: flex;
   justify-content: space-between;
-  padding-right: 30px;
+  padding-right: 2em;
   background: rgba(255, 255, 255, 0.95);
   transition: border 0.4s;
   z-index: 1;
@@ -97,6 +97,5 @@ export default {
 }
 .page__container {
   flex: 1;
-  overflow: auto;
 }
 </style>

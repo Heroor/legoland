@@ -1,5 +1,5 @@
 <template lang="pug">
-.home
+.home-page
   .title
     h1 Legoland
     .title__desc Lego components ecosystem
@@ -15,7 +15,8 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.home {
+.home-page {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
