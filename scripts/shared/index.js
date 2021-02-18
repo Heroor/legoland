@@ -6,7 +6,7 @@ function transfTemplate(str = '', data = {}) {
   let resultStr = str
   for (const key in data) {
     if (Object.hasOwnProperty.call(data, key)) {
-      resultStr = resultStr.replace(`{{${key}}}`, data[key])
+      resultStr = resultStr.replace(new RegExp(`{{${key}}}`, 'g'), data[key])
     }
   }
   return resultStr
