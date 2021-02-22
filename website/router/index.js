@@ -42,6 +42,12 @@ const router = new VueRouter({
       component: Home,
     },
     ...routes,
+    {
+      path: '*',
+      name: '404',
+      label: '404',
+      redirect: '/',
+    },
   ],
 })
 

@@ -33,16 +33,17 @@ export default {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  background-position: bottom right, 0, 0;
-  background-size: 500px, 550px, 16px 14px;
-  background-repeat: no-repeat, no-repeat, repeat;
+  background-position: bottom right, 0, 0, 0;
+  background-size: 500px, 550px, 500px, 16px 14px;
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
   transition: 0.5s;
-  @media screen and (min-width: 1366px) {
-    background-size: 600px, 700px, 16px 14px;
+  @media screen and (min-width: 1500px) {
+    background-size: 600px, 700px, 700px, 16px 14px;
   }
   &.home {
     background-image: url(./assets/images/lego-bg1.png),
-      url(./assets/images/lego-bg2.png), url(./assets/images/lego-bg0.png);
+      url(./assets/images/lego-bg3.gif), url(./assets/images/lego-bg2.png),
+      url(./assets/images/lego-bg0.png);
     .top-bar {
       transition: border 0s;
       background: none;
@@ -54,8 +55,8 @@ export default {
         }
       }
     }
-    @media screen and (min-width: 1366px) {
-      background-size: 600px, 700px, 16px 14px;
+    @media screen and (min-width: 1500px) {
+      background-size: 600px, 700px, 700px, 16px 14px;
     }
   }
 }
