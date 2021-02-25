@@ -9,7 +9,7 @@ doc-layout.document__page
       @click="onClickMenu"
     )
   .doc-container
-    component(v-if="activeMenu", :is="curModule")
+    component.markdown-page(v-if="activeMenu", :is="curModule")
     .no-data-tip(v-else) 暂无内容，请使用 "npm run add" 创建
 </template>
 
@@ -97,6 +97,9 @@ export default {
   }
   .doc-container {
     padding: 0 3em;
+    .markdown-page {
+      margin-bottom: 2em;
+    }
   }
 }
 </style>
