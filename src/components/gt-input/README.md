@@ -2,34 +2,34 @@
 
 `el-input` 与 `el-form-item` 的封装
 
-## 基础用法
-<el-form>
-  <gt-input v-model="name" label="姓名"></gt-example>
-</el-form>
+## 示例
 
-```html
+### 基础用法
+
+:::demo 这是用法描述
 <template>
   <el-form>
-    <gt-input v-model="name" label="姓名"></gt-example>
+    <gt-input label="姓名" v-model="name"></gt-input>
   </el-form>
 </template>
-
 <script>
-export default {
-  data () {
-    return {
-      name: ''
+  export default {
+    data () {
+      return {
+        name: 'Tom'
+      }
     }
-  },
-}
+  }
 </script>
-```
+:::
 
-## Attributes
+## Props
 
-| 参数            | 说明   | 类型   | 可选值 | 默认值 |
-| --------------- | ------ | ------ | ------ | ------ |
-| value / v-model | 绑定值 | Number | -      | ''     |
+| 参数            | 说明                                                             | 类型   | 可选值 | 默认值     |
+| --------------- | ---------------------------------------------------------------- | ------ | ------ | ---------- |
+| value / v-model | 绑定值                                                           | Number | -      | `''`       |
+| label           | form-item 的 label，没有传 placeholder 时，当做 placeholder 使用 | String | -      | `''`       |
+| placeholder     | input 的 placeholder                                             | String | -      | `"请输入"` |
 
 ## Events
 

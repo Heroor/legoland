@@ -14,7 +14,9 @@
   "dependencies": {},
   "peerDependencies": {
     "element-ui": "^2.14.1",
-    "vue": "^2.6.11"
+    "js-base64": "^2.5.2",
+    "vue": "^2.6.11",
+    "vue-baidu-map": "^0.21.22"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -61,7 +63,7 @@
       "git add"
     ]
   },
-  "main": "lib/main.js",
+  "main": "src/main.js",
   "files": [
     "src/blocks",
     "src/components/*",

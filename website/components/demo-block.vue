@@ -1,14 +1,17 @@
 <template lang="pug">
-.demo
-  slot
-  slot.code-block(name="code")
+.demo-block
+  .demo-desc
+    slot(name="desc")
+  .demo-container
+    slot
 </template>
 
-<script>
-export default {}
-</script>
-
 <style lang="less" scoped>
-.code-block {
+.demo-block {
+  .demo-container {
+    padding: 20px;
+    border: 2px solid #eee;
+    border-radius: 6px 6px 0 0;
+  }
 }
 </style>

@@ -79,6 +79,9 @@ export default {
         color: #11418d;
         background: none;
       }
+      &.is-active {
+        border-color: #11418d;
+      }
     }
   }
   .logo-wrap {

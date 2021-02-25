@@ -28,7 +28,7 @@ export default {
   methods: {
     clickMenu(menu) {
       const menuName = menu[this.nameProp]
-      console.log(menu, menuName)
+      // console.log(menu, menuName)
       if (this.value === menuName) return
 
       this.$emit('input', menuName)
@@ -45,6 +45,7 @@ export default {
   list-style: none;
   padding: 2em 0;
   margin: 0;
+  font-size: 16px;
   li {
     line-height: 1.4;
     padding: 0 1em 0 2em;

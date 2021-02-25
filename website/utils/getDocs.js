@@ -9,8 +9,8 @@ class Doc {
       this.context = require.context('@', true, /README\.md$/)
     }
     this.context.keys().forEach(path => {
-      const [docType, docGroup, docName] = path.substr(2).split('/')
-      console.log(docType, docGroup, docName)
+      const [docType, docName] = path.substr(2).split('/')
+      // console.log(docType, docName)
       if (!this.docMap[docType]) {
         this.docMap[docType] = {}
       }
@@ -23,7 +23,7 @@ class Doc {
         module: this.context(path).default,
       }
     })
-    console.log(this.docMap)
+    // console.log(this.docMap)
   }
 }
 

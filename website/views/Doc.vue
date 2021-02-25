@@ -7,7 +7,7 @@ doc-layout.document__page
       :data="menus",
       @click="onClickMenu"
     )
-  .markdown-body
+  .doc-container
     component(v-if="activeMenu", :is="curModule")
     .no-data-tip(v-else) 暂无内容，请使用 "npm run add" 创建
 </template>
@@ -33,17 +33,8 @@ export default {
       activeMenu: this.$route.params.sub,
     }
   },
-  watch: {
-    '$route.params.sub': {
-      immediate: true,
-      handler(name) {
-        console.log(name)
-      },
-    },
-  },
   created() {
     const modules = getDocs(this.$route.name)
-    console.log(modules)
     this.modules = modules.map(({ path, module, name: title }) => {
       return {
         path,
@@ -76,7 +67,6 @@ export default {
     },
   },
   beforeRouteEnter(to, from, next) {
-    console.log('beforeRouteEnter doc')
     next(vm => {
       // if (!from.name || from.name === 'home') {
       vm.renderHtml(to.params.sub)
@@ -84,7 +74,6 @@ export default {
     })
   },
   beforeRouteUpdate(to, from, next) {
-    console.log('beforeRouteUpdate doc')
     const fromPaths = from.path.substr(1).split('/')
     const toPaths = to.path.substr(1).split('/')
     if (toPaths.length < fromPaths.length) {
@@ -103,7 +92,7 @@ export default {
     text-align: center;
     margin-top: 40px;
   }
-  .markdown-body {
+  .doc-container {
     padding: 0 3em;
   }
 }

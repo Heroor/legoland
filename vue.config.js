@@ -19,9 +19,21 @@ module.exports = {
       .loader('vue-loader')
       .end()
       .use('vue-markdown-loader')
-      .loader('vue-markdown-loader/lib/markdown-compiler')
+      .loader('./build/markdown-loader/markdown-compiler')
       .options({
         raw: true,
+        wrapper: 'article',
+        wrapperClassName: 'markdown-body',
+        use: [
+          [
+            require('markdown-it-container'),
+            'demo',
+            {
+              validate: params => params.trim().match(/^demo\s*(.*)$/),
+              render: require('./build/markdown-loader/container-parser.js'),
+            },
+          ],
+        ],
       })
   },
 }

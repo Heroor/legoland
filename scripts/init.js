@@ -1,13 +1,13 @@
 const fs = require('fs-extra')
 const { resolve } = require('path')
 const chalk = require('chalk')
-const { srcPath, getLibs } = require('./shared')
+const pkg = require('../package.json')
+const { getLibs } = require('./shared')
 const {
   generateEntryScript,
   generateGlobalScript,
 } = require('./shared/generator')
-
-const mainPath = resolve(srcPath, 'main.js')
+const mainPath = resolve(pkg.main)
 const vueGlobalPath = resolve(__dirname, '../website/global.js')
 
 const libs = getLibs()
