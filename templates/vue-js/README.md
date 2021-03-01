@@ -1,12 +1,13 @@
 # {{LIB_NAME}} 累加示例
 
+这是一个示例组件，请按照以下格式书写组建文档。
 
 ## 示例
 
 
 ### 基础用法
 
-:::demo 这是描述信息
+:::demo 这里是此种示例的描述信息
 <template>
   <gt-example v-model="num" @change="onChange"></gt-example>
 </template>
