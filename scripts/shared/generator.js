@@ -1,15 +1,17 @@
 const { toCamelCase } = require('./index')
 const pkg = require('../../package.json')
 
-const getImports = libs =>
+const getImports = (libs, isRelative = false) =>
   libs
     .map(lib => {
-      return `import ${toCamelCase(lib.name)} from '@${lib.type}/${lib.name}'`
+      return `import ${toCamelCase(lib.name)} from '${isRelative ? './' : '@'}${
+        lib.type
+      }/${lib.name}'`
     })
     .join('\n')
 
 exports.generateEntryScript = function(libs) {
-  const importsSrc = getImports(libs)
+  const importsSrc = getImports(libs, true)
   const libNames = libs.map(lib => toCamelCase(lib.name))
   const exportsSrc = libNames.join(',\n  ')
 
