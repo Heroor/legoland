@@ -7,15 +7,11 @@ import GtTable from '@components/gt-table'
 
 export { DatePicker, GtTablePagination, GtExample, GtInput, GtTable }
 
+const Libs = [DatePicker, GtTablePagination, GtExample, GtInput, GtTable]
+
 function install(Vue) {
-  ;[
-    'DatePicker',
-    'GtTablePagination',
-    'GtExample',
-    'GtInput',
-    'GtTable',
-  ].forEach(lib => {
-    Vue.use(lib, lib)
+  Libs.forEach(lib => {
+    Vue.use(lib)
   })
 }
 
