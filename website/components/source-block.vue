@@ -38,12 +38,12 @@ export default {
   line-height: 2.2em;
   text-align: center;
   border-radius: 0 0 6px 6px;
-  background: #f8f8f8;
+  background: rgba(248, 248, 248, 0.618);
   color: #bbb;
   cursor: pointer;
   &:hover {
     transition: 0.2s;
-    background: rgba(248, 248, 248, 0.618);
+    background: #f8f8f8;
   }
 }
 </style>

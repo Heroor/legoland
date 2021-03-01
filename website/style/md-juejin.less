@@ -92,7 +92,7 @@
   }
   table:not(@{wrap} table) {
     display: inline-block !important;
-    font-size: 12px;
+    font-size: 14px;
     width: auto;
     max-width: 100%;
     overflow: auto;
@@ -127,6 +127,12 @@
   }
   blockquote:not(@{wrap} blockquote) > p {
     margin: 10px 0;
+  }
+  ol:not(@{wrap} ol) {
+    list-style: decimal;
+  }
+  ul:not(@{wrap} ul) {
+    list-style: disc;
   }
   ol:not(@{wrap} ol),
   ul:not(@{wrap} ul) {
