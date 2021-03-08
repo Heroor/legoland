@@ -1,6 +1,6 @@
 {
   "name": "legoland",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Lego components ecosystem",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -9,7 +9,8 @@
     "build": "npm run lint && npm run build:website",
     "build:website": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "publish": "npm run init && npm publish"
   },
   "dependencies": {},
   "peerDependencies": {
@@ -74,5 +75,9 @@
     "src/pages",
     "src/templates",
     "src/main.js"
-  ]
+  ],
+  "homepage": "https://github.com/Heroor/legoland#readme",
+  "bugs": {
+    "url": "https://github.com/Heroor/legoland/issues"
+  }
 }

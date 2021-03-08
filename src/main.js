@@ -16,7 +16,7 @@ function install(Vue) {
 }
 
 export default {
-  version: '0.1.5',
+  version: '0.1.8',
   install,
   DatePicker,
   GtTablePagination,
