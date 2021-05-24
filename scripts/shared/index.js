@@ -13,6 +13,11 @@ function transfTemplate(str = '', data = {}) {
   return resultStr
 }
 
+/**
+ * @description: 转大驼峰
+ * @param {*} str
+ * @return {*} string
+ */
 function toCamelCase(str = '') {
   let rest = str.substr(1).replace(/-(\w)/g, ($, $1) => $1.toUpperCase())
 
@@ -30,16 +35,28 @@ function replaceTemplateFiles(filePaths, data, callback) {
   }
 }
 
+/**
+ * @description: 读取 src 下的全部 blocks 和 components 组件
+ * @return {*} [{ name: 'date-picker', type: 'blocks' },]
+ */
 function getLibs() {
+  /* 读取 src 下的全部 blocks 和 components 组件 */
+
   const libTypeDirs = fs.readdirSync(srcPath)
+  // 同步读取制定目录下所有文件名称
+
   return libTypeDirs
     .filter(type => libTypes.includes(type))
     .reduce((libDirs, type) => {
       const libDir = resolve(srcPath, type)
 
+      // 同步获取相关文件状态信息
       const state = fs.lstatSync(libDir)
+
       if (state.isDirectory()) {
+        // 文件是目录
         const targets = fs.readdirSync(libDir)
+        // 同步读取制定目录下所有文件名称
 
         return libDirs.concat(
           targets.map(lib => ({
