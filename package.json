@@ -12,7 +12,6 @@
     "lint": "vue-cli-service lint",
     "publish": "npm run init && npm publish"
   },
-  "dependencies": {},
   "peerDependencies": {
     "dayjs": "^1.8.27",
     "element-ui": "^2.14.1",
